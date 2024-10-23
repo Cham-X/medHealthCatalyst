@@ -33,7 +33,7 @@ const AppointmentForm = ({type,userId,patientId,appointment,setOpen}:{patientId:
         defaultValues: {
             userId,
             primaryPhysician: appointment?.primaryPhysician || "",
-            schedule:appointment?new Date(appointment.schedule) :new Date(),
+            schedule:appointment?new Date(appointment.schedule!) :new Date(Date.now()),
             reason:appointment?.reason || "",
             note: appointment?.note || "",
             cancellationReason:appointment?.cancellationReason || "",
@@ -43,15 +43,14 @@ const AppointmentForm = ({type,userId,patientId,appointment,setOpen}:{patientId:
     // 2. Define a submit handler.
    const onSubmit =  async(values: z.infer<typeof appointmentFormValidation>) => {
      setIsLoading(true)
-     console.log("I am here")
 
           let status;
         switch (type) {
                case "cancel":
-                  status="Cancelled"
+                  status="cancelled"
                    break;
                case "schedule":
-                   status = "Scheduled"
+                   status = "scheduled"
                    break;
                 default:
                    status = "pending";
@@ -71,7 +70,8 @@ const AppointmentForm = ({type,userId,patientId,appointment,setOpen}:{patientId:
                }
                
                
-               const appointment = await createAppointment(appointmentData)
+             const appointment = await createAppointment(appointmentData)
+             console.log(appointment.status)
                if (appointment) {
                    form.reset();
                    router.push(`/patients/${userId}/new-appointment/success?appointmentId=${appointment.$id}`)
@@ -89,8 +89,6 @@ const AppointmentForm = ({type,userId,patientId,appointment,setOpen}:{patientId:
                },
                type
              }
-
-             console.log(appointment.status)
 
              const updatedAppointment = await updateAppointment(appointmentToUpdate);
              if (updatedAppointment) {
