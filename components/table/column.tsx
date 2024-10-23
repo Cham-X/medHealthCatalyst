@@ -47,7 +47,7 @@ export const columns: ColumnDef<Appointment>[] = [
     cell: ({ row }) => {
       const doctor = Doctors.find((doc) => doc.name === row.original.primaryPhysician)
       return (
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 pr-4">
           <Image
             src={doctor?.image}
             alt={doctor}

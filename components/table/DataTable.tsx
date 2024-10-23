@@ -44,13 +44,9 @@ export function DataTable<TData, TValue>({
 }: DataTableProps<TData, TValue>) {
 
     const [sorting, setSorting] = React.useState<SortingState>([])
-      const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    []
-    )
-    
-      const [columnVisibility, setColumnVisibility] =
-        React.useState<VisibilityState>({})
-      const [rowSelection, setRowSelection] = React.useState({})
+    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
+    const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
+    const [rowSelection, setRowSelection] = React.useState({})
 
 
   const table = useReactTable({
@@ -141,7 +137,7 @@ export function DataTable<TData, TValue>({
               <TableRow
                 key={row.id}
                 data-state={row.getIsSelected() && "selected"}
-                className="shad-table-row"
+                className="shad-table-row whitespace-nowrap"
               >
                 {row.getVisibleCells().map((cell) => (
                   <TableCell key={cell.id}>
