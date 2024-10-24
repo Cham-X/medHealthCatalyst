@@ -21,7 +21,7 @@ import { Appointment } from "@/types/appwrites.types"
 
 
  
-const AppointmentForm = ({type,userId,patientId,appointment,setOpen}:{patientId:string, userId:string, type:"create" | "cancel" | "schedule",appointment:Appointment,setOpen:(open:boolean) => void}) => {
+const AppointmentForm = ({type,userId,patientId,appointment,setOpen}:{patientId:string, userId:string, type:"create" | "cancel" | "schedule",appointment?:Appointment,setOpen?:(open:boolean) => void}) => {
     const router = useRouter()
     const [isloading, setIsLoading] = useState(false)
     

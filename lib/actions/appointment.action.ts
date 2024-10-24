@@ -81,7 +81,7 @@ export const updateAppointment = async ({appointmentId,appointment}:UpdateAppoin
         const updatedAppointment = await databases.updateDocument(
             DATABASE_ID!,
             APPOINTMENT_COLLECTION_ID!,
-            appointmentId,
+            appointmentId!,
             appointment,
         )
         if (!updatedAppointment) {

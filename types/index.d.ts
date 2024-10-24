@@ -51,7 +51,7 @@ declare type CreateAppointmentParams = {
 };
 
 declare type UpdateAppointmentParams = {
-  appointmentId: string;
+  appointmentId: string | undefined;
   userId: string;
   appointment: Appointment;
   type: string;
