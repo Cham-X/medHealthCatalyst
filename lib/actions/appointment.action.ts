@@ -42,7 +42,7 @@ export const getRecentAppointmentList = async () => {
         const appointment = await databases.listDocuments(
             DATABASE_ID!,
             APPOINTMENT_COLLECTION_ID!,
-    // [Query.orderDesc('$createdAt')]
+    [Query.orderDesc('$createdAt')]
         );
 
         const initialCounts = {
@@ -76,7 +76,7 @@ export const getRecentAppointmentList = async () => {
     }
 }
 
-export const updateAppointment = async ({appointmentId,userId,appointment,type}:UpdateAppointmentParams) => {
+export const updateAppointment = async ({appointmentId,appointment}:UpdateAppointmentParams) => {
     try {
         const updatedAppointment = await databases.updateDocument(
             DATABASE_ID!,
