@@ -9,11 +9,11 @@ export default async function NewAppointment({ params: { userId } }: SearchParam
     <div className="flex h-screen max-h-screen" >
       {/* TODO: OTP VERIFICATION */}
         <Image
-        src="/assets/images/appointment-img.png"
+        src="/assets/images/appointment-bg.jpg"
         alt="onboarding"
         width={1000}
         height={1000}
-        className="side-img max-w-[390px] h-full"
+        className="side-img max-w-[400px] h-full"
       />
 
       <section className="remove-scrollbar container">

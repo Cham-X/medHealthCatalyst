@@ -8,7 +8,7 @@ const Register = async ({ params: { userId } }:SearchParamProps) => {
   return (
       <div className="flex h-screen max-h-screen" >
              <Image
-        src="/assets/images/register-img.png"
+        src="/assets/images/register-bg.jpg"
         alt="onboarding"
         width={1000}
         height={1000}

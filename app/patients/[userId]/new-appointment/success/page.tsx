@@ -6,21 +6,21 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const Success =async ({ params: { userId }, searchParams }: SearchParamProps) => {
+const Success = async({ params: { userId }, searchParams }: SearchParamProps) => {
   const appointmentId = (searchParams?.appointmentId as string) || "";
   const appointment = await getAppointment(appointmentId);
   const doctor = Doctors.find((doc) => doc.name === appointment.primaryPhysician);
 
   return (
-    <div className='flex h-screen max-h-screen px-[5%] text-gray-300'>
-      <div className='success-img'>
+    <div className='flex h-screen min-h-screen relative  px-[5%] success-bg text-gray-300 '>
+      <div className='success-img overlay  '>
         <Link href="/">
           <Image
             src="/assets/icons/logo-full.svg"
             height={1000}
             width={1000}
             alt='logo'
-            className='h-10 w-fit'
+            className='h-7 w-fit hidden sm:flex sm:h-10'
           />
         </Link>
 
@@ -66,8 +66,6 @@ const Success =async ({ params: { userId }, searchParams }: SearchParamProps) =>
             New Appointment
           </Link>
         </Button>
-
-        <p>&copy; 2024 MedHealthCatalyst</p>
       </div>
     </div>
   )

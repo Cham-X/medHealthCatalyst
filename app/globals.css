@@ -74,11 +74,11 @@
 
   /* ==== SUCCESS */
   .success-img {
-    @apply m-auto flex flex-1 flex-col items-center justify-between gap-10 py-10;
+    @apply m-auto flex flex-1 flex-col items-center justify-between gap-4 sm:gap-10 py-5 sm:py-10;
   }
 
   .request-details {
-    @apply flex w-full flex-col items-center gap-8 border-y-2 border-dark-400 py-8 md:w-fit md:flex-row;
+    @apply flex w-full flex-col items-center gap-4 sm:gap-8 border-y-2 border-dark-400 py-4 sm:py-8 md:w-fit md:flex-row;
   }
 
   /* ===== ADMIN */
@@ -347,4 +347,21 @@
 
 .PhoneInputInput::placeholder {
   color: #1a1d21;
+}
+
+.success-bg{
+  background-image: url("/assets//images/success-img.jpg");
+ background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.overlay{
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
