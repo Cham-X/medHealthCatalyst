@@ -33,7 +33,7 @@ const PatientForm = () => {
         defaultValues: {
             name: "",
             email: "",
-            phone:""
+            phone:"",
         },
     })
  
@@ -44,18 +44,17 @@ const PatientForm = () => {
         try {
             console.log("hi")
             const userData = {
-   name: values.name,
-        email: values.email,
-                phone: values.phone,
+            name: values.name,
+            email: values.email,
+            phone: values.phone,
             };
             
             const user = await createUsers(userData)
 
             
             if (user) {
-                            console.log('passed create user function')
 
-                router.push(`/patients/${user.$id}/register`);
+            router.push(`/patients/${user.$id}/register`);
             }
         } catch (error) {
             console.log(error)
