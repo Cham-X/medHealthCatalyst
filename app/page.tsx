@@ -5,6 +5,7 @@ import Link from "next/link";
 
 export default function Home({ searchParams }: SearchParamProps) {
   const isAdmin = searchParams?.admin === "true";
+  
   return (
     <div className="flex h-screen max-h-screen text-dark-700" >
       {/* TODO: OTP VERIFICATION */}
