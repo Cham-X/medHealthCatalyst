@@ -1,6 +1,7 @@
 import Image from "next/image";
 import AppointmentForm from "@/components/forms/AppointmentForm";
 import { getPatients } from "@/lib/actions/patient.actions";
+import Logo from "@/components/Logo";
 
 export default async function NewAppointment({ params: { userId } }: SearchParamProps) {
     const patient = await getPatients(userId)
@@ -18,13 +19,7 @@ export default async function NewAppointment({ params: { userId } }: SearchParam
 
       <section className="remove-scrollbar container">
         <div className="sub-container max-w-[800px] py-0 flex-1">
-          <Image
-            src="/assets/icons/logo-full.svg"
-            alt="logo"
-            height={1000}
-            width={1000}
-            className="mb-12 h-10 w-fit"
-          />
+         <Logo/>
 
                   <AppointmentForm type="create" userId={userId} patientId={patient?.$id} />
                   

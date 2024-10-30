@@ -1,3 +1,4 @@
+import Logo from '@/components/Logo'
 import { Button } from '@/components/ui/button'
 import { Doctors } from '@/constants'
 import { getAppointment } from '@/lib/actions/appointment.action'
@@ -15,13 +16,7 @@ const Success = async({ params: { userId }, searchParams }: SearchParamProps) =>
     <div className='flex h-screen min-h-screen relative  px-[5%] success-bg text-gray-300 '>
       <div className='success-img overlay  '>
         <Link href="/">
-          <Image
-            src="/assets/icons/logo-full.svg"
-            height={1000}
-            width={1000}
-            alt='logo'
-            className='h-7 w-fit hidden sm:flex sm:h-10'
-          />
+        <Logo/>
         </Link>
 
         <section className='flex flex-col items-center'>

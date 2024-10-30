@@ -1,4 +1,5 @@
 import PatientForm from "@/components/forms/PatientForm";
+import Logo from "@/components/Logo";
 import PassKeyModal from "@/components/PassKeyModal";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,13 +21,7 @@ export default function Home({ searchParams }: SearchParamProps) {
 
       <section className="remove-scrollbar container">
         <div className="sub-container max-w-[800px] py-0 flex-1">
-          <Image
-            src="/assets/icons/logo-full.svg"
-            alt="logo"
-            height={1000}
-            width={1000}
-            className="mb-12 h-10 w-fit"
-          />
+          <Logo/>
 
           <PatientForm />
           
