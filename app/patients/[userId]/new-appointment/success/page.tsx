@@ -41,7 +41,7 @@ const Success = async({ params: { userId }, searchParams }: SearchParamProps) =>
           <p>Request appointment details:</p>
           <div className='flex items-center gap-3'>
             <Image
-              src={doctor?.image!}
+              src={doctor?.image || "/assets/icons/doctor.svg"}
               height={100}
               width={100}
               alt='logo'
