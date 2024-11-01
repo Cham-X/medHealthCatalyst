@@ -38,6 +38,8 @@ export const getAppointment = async (appointmentId: string) => {
 }
 
 export const getRecentAppointmentList = async () => {
+        console.log(DATABASE_ID)
+
     try {
         const appointment = await databases.listDocuments(
             DATABASE_ID!,
@@ -74,7 +76,6 @@ export const getRecentAppointmentList = async () => {
             ...counts,
             document:appointment.documents,
         }
-console.log(data)
         return parseStringify(data)
 
     } catch (error) {

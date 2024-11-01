@@ -2,26 +2,21 @@ import { DataTable } from '@/components/table/DataTable'
 import { columns } from '@/components/table/column'
 import StatCard from '@/components/StatCard'
 import { getRecentAppointmentList } from '@/lib/actions/appointment.action'
-import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import Logo from '@/components/Logo'
 
 
 
 
 const Admin = async() => {
-const appointments = await getRecentAppointmentList()
+    const appointments = await getRecentAppointmentList()
+    if(!appointments) return <div>Loading...</div>
   return (
     <div className='mx-auto flex max-w-7xl flex-col space-y-14 text-dark-700'>
           <header className='admin-header'>
               <Link href="/" className='cursor-pointer'>
-                  <Image
-                      src="/assets/icons/logo-full.svg"
-                      height={32}
-                      width={162}
-                      alt='logo'
-                      className='h-8 w-fit'
-                  />
+               <Logo/>
               </Link>
               <p className='text-16-bold'>Admin Dashboard</p>
           </header>
