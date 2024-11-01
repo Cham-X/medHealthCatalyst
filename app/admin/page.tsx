@@ -3,7 +3,7 @@ import { columns } from '@/components/table/column'
 import StatCard from '@/components/StatCard'
 import { getRecentAppointmentList } from '@/lib/actions/appointment.action'
 import Link from 'next/link'
-import React from 'react'
+import React, { Suspense } from 'react'
 import Logo from '@/components/Logo'
 
 
@@ -11,10 +11,10 @@ import Logo from '@/components/Logo'
 
 const Admin = async() => {
     const appointments = await getRecentAppointmentList()
-    if(!appointments) return <div>Loading...</div>
-  return (
-    <div className='mx-auto flex max-w-7xl flex-col space-y-14 text-dark-700'>
-          <header className='admin-header'>
+     return (
+      <Suspense fallback={<>Loading...</>}>
+              <div className='mx-auto flex max-w-7xl flex-col space-y-14 text-dark-700'>
+          <header className='admin-header '>
               <Link href="/" className='cursor-pointer'>
                <Logo/>
               </Link>
@@ -51,7 +51,8 @@ const Admin = async() => {
               <DataTable columns={columns } data={ appointments.document} />
 
           </main>
-    </div>
+    </div>  
+      </Suspense>
   )
 }
 

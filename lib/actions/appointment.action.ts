@@ -38,8 +38,6 @@ export const getAppointment = async (appointmentId: string) => {
 }
 
 export const getRecentAppointmentList = async () => {
-        console.log(DATABASE_ID)
-
     try {
         const appointment = await databases.listDocuments(
             DATABASE_ID!,
