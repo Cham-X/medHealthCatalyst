@@ -5,7 +5,7 @@ import { getAppointment } from '@/lib/actions/appointment.action'
 import { formatDateTime } from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { Suspense } from 'react'
 
 const Success = async({ params: { userId }, searchParams }: SearchParamProps) => {
   const appointmentId = (searchParams?.appointmentId as string) || "";
@@ -13,7 +13,8 @@ const Success = async({ params: { userId }, searchParams }: SearchParamProps) =>
   const doctor = Doctors.find((doc) => doc.name === appointment.primaryPhysician);
 
   return (
-    <div className='flex h-screen min-h-screen relative  px-[5%] success-bg text-gray-300 '>
+      <Suspense fallback={<>Loading...</>}>
+  <div className='flex h-screen min-h-screen relative  px-[5%] success-bg text-gray-300 '>
       <div className='success-img overlay  '>
         <Link href="/">
         <Logo/>
@@ -63,6 +64,7 @@ const Success = async({ params: { userId }, searchParams }: SearchParamProps) =>
         </Button>
       </div>
     </div>
+    </Suspense>
   )
 }
 
