@@ -44,7 +44,6 @@ export const getRecentAppointmentList = async () => {
             APPOINTMENT_COLLECTION_ID!,
             [Query.orderDesc('$createdAt')]
         );
-
         const initialCounts = {
             scheduledCount: 0,
             pendingCount: 0,

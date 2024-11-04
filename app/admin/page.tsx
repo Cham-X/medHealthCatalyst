@@ -5,12 +5,14 @@ import { getRecentAppointmentList } from '@/lib/actions/appointment.action'
 import Link from 'next/link'
 import React, { Suspense } from 'react'
 import Logo from '@/components/Logo'
+import { DATABASE_ID } from '@/lib/appwrite.config'
 
 
 
 
 const Admin = async() => {
     const appointments = await getRecentAppointmentList()
+    console.log(DATABASE_ID)
      return (
       <Suspense fallback={<>Loading...</>}>
               <div className='mx-auto flex max-w-7xl flex-col space-y-14 text-dark-700'>
