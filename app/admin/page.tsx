@@ -5,14 +5,10 @@ import { getRecentAppointmentList } from '@/lib/actions/appointment.action'
 import Link from 'next/link'
 import React, { Suspense } from 'react'
 import Logo from '@/components/Logo'
-import { DATABASE_ID } from '@/lib/appwrite.config'
-
-
 
 
 const Admin = async() => {
     const appointments = await getRecentAppointmentList()
-    console.log(DATABASE_ID)
      return (
       <Suspense fallback={<>Loading...</>}>
               <div className='mx-auto flex max-w-7xl flex-col space-y-14 text-dark-700'>
@@ -40,7 +36,7 @@ const Admin = async() => {
                       type="pending"
                       count={appointments.pendingCount}
                       label="Pending appointment"
-                      icon="/assets/icons/Pending.svg"
+                      icon="/assets/icons/pending.svg"
                   />
                   <StatCard
                       type="cancelled"
@@ -50,8 +46,9 @@ const Admin = async() => {
                   />
               </section>
 
-              <DataTable columns={columns } data={ appointments.document} />
-
+                     <DataTable
+                         columns={columns} data={appointments.document}
+                     />
           </main>
     </div>  
       </Suspense>
